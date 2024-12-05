@@ -45,8 +45,7 @@ include("../connect.php");
             </div>
         </div>
     </div>
-
-
+    
     <div id="home">
         <div class="home_intro">
             <h1>Welcome to <span class="logo">EazyDine</span></h1>
