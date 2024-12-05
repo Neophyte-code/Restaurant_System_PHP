@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+ }
+#home {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: calc(100% - 200px);
+    display: flex;
+    background-image: url(../images/background.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.home_intro{
+    width: 47%;
+    padding: 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    z-index: 1;
+    text-shadow: 4px 4px 20px rgba(0, 0, 0, 1);
+}
+.home_intro h1{
+    font-weight: bold;
+    font-size: 50px;
+    color: whitesmoke;
+    line-height: 0;
+}
+.home-subtitle{
+    color: whitesmoke;
+    line-height: 0;
+}
+.home-para{
+    text-indent: 30px;
+    text-align: justify;
+    letter-spacing: 1px;
+    color: whitesmoke;
+    line-height: 20px;
+    position: relative;
+    padding: 5px;
+}
+.home-para::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(2px); 
+    z-index: -1;
+}
+
+.buttons{
+    display: flex;
+    gap: 20px;
+}
+.buttons button{
+    height: 40px;
+    border: 1px solid gray;
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 30px;
+    gap: 20px;
+    letter-spacing: 2px;
+}
+.buttons button:nth-child(1){
+    background-color: skyblue;
+}
+.buttons button:nth-child(2){
+    background-color: rgb(231, 231, 150);
+}
+.buttons button:nth-child(1):hover{
+    background-color: rgba(135, 207, 235, 0.781);
+}
+.buttons button:nth-child(2):hover{
+    background-color: rgba(231, 231, 150, 0.801);
+}
+
+
+.home_image{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 53%;
+}
+.img-container{
+    height: 90%;
+    position: relative;
+}
+.images{
+    height: auto;
+    width: 290px;
+    position: absolute;
+}
+.images:nth-child(1){
+    top:  25%;
+    left: 0;
+    animation: breathing 3s ease-in-out infinite;
+}
+.images:nth-child(2) {
+    top:    0;
+    right: 0;
+    margin-right: 15px;
+    animation: breathing 2s ease-in-out infinite;
+}
+
+.images:nth-child(3) {
+    bottom: 0;
+    right:  0;
+    margin-right: 15px;
+    animation: breathing 4s ease-in-out infinite;
+}
+@keyframes breathing{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.dialog{
+    position: absolute;
+}
+.dialog-1{
+    bottom: 70%;
+    right: 40%;
+}
+.dialog-2{
+    bottom: 20%;
+    right: 20%;
+}
