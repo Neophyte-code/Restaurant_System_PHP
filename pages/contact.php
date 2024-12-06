@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../connect.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -10,9 +11,9 @@ include("../connect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EASYDINE RESTAURANT</title>
     <link rel="stylesheet" href="../css/navbar.css"/>
-    <link rel="stylesheet" href="../css/services.css"/>
+    <link rel="stylesheet" href="../css/contact.css"/>
 </head>
-<body >
+<body>
 <div class="navbar">
         <div class="navbar-content">
             <div class="logo_div">
@@ -44,33 +45,27 @@ include("../connect.php");
             </div>
         </div>
     </div>
-
-    <div id="services">
-        <div class="container"></div>
-            <header>
-                <div class="title">PRODUCT LIST</div>
-                <div class="icon-cart">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
-                    </svg>
-                    <span>0</span>
+    <div id="contact" class="contact">
+        <div class="contact-content">
+            <h3>Contact Us</h3>
+            <h1>Let's talk about your experiences</h1>
+            <h6>Drop us a line through the form below and we'll get back to you</h6>
+            <div class="contact-box">
+                <div class="contact-left">
+                    <span><img src="../images/locationicon.png" alt="location" class="location">&nbsp;123, Lugar sa mga loyal, Tapilon, Daanbantayan, Cebu</span>
+                    <span><img src="../images/telephone.jpg" alt="telephone" class="telephone">&nbsp; 922-188-123</span>
+                    <span><img src="../images/cellphone.png" alt="telephone" class="telephone">&nbsp; 09632122818</span>
                 </div>
-            </header>
-            <div class="listProduct">
-
+                <div class="contact-right">
+                    <h5>Leave us a message</h5>
+                    <input type="text" class="input-text" placeholder="Name">
+                    <input type="text" class="input-text" placeholder="Email">
+                    <textarea name="message" class="input text message-box" placeholder="Message"></textarea>
+                    <button class="btn-send">Send</button>
+                </div>
             </div>
         </div>
-        <div class="cartTab">
-            <h1>Shopping Cart</h1>
-            <div class="listCart">
-                
-            </div>
-            <div class="btn">
-                <button class="close">CLOSE</button>
-                <button class="checkOut">Check Out</button>
-            </div>
-        </div>
+        
     </div>
-    <script src="../js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+ }
+
+#contact{
+    width: calc(100% - 200px);
+    position: fixed;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    color: whitesmoke;
+}
+.contact-content{
+    background-color: rgba(167, 167, 167, 0.616);
+    text-align: center;
+    height: 90%;
+    width: 90%;
+    box-shadow: 0px 6px 15px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+}
+.contact-content h3{
+    font-size: 20px;
+}
+.contact-content h1{
+    font-weight: 800;
+    color: lightblue;
+}
+.contact-content h6{
+    font-size: 15px;
+}
+.contact-box{
+    height: 60%;
+    display: flex;
+}
+.contact-left{
+    width: 50%;
+    padding: 20px;
+    text-align: left;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-left span{
+    display: flex;
+    align-items: center;
+}
+.location{
+    width: 25px;
+}
+.telephone{
+    width: 25px;
+}
+.contact-right{
+    width: 50%;
+    padding: 20px;
+    text-align: left;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    border: 2px solid aqua;
+    background-color: gray;
+}
+.input-text{
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgb(24, 253, 253);
+    border-radius: 5px;
+    box-sizing: border-box; 
+    background-color: transparent;
+}
+.input-text::placeholder {
+    color: whitesmoke;
+}
+.message-box {
+    height: 100px;
+    resize: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgb(24, 253, 253);
+    border-radius: 5px;
+    box-sizing: border-box; 
+    background-color: transparent;
+}
+.message-box::placeholder{
+    color: whitesmoke;
+}
+.btn-send{
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(252, 252, 0);
+    color: black;
+}
+.btn-send:hover{
+    background-color: rgba(252, 252, 0, 0.658);
+}

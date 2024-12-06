@@ -36,9 +36,9 @@ include("../connect.php");
             <div class="pages">
                 <a href="home.php">Home</a>
                 <a href="menu.php">Menu</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">location</a>
-                <a href="contact.html">Contact</a>
+                <a href="about.php">About</a>
+                <a href="location.php">location</a>
+                <a href="contact.php">Contact</a>
             </div>
             <div class="logout">
                 <a href="../logout.php" class="logout-btn">Logout</a>
