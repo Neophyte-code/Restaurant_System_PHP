@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "name": "Ginagmay",
+        "price": 5,
+        "image": "../images/1.png"
+    },
+    {
+        "id": 2,
+        "name": "Chicken inasal",
+        "price": 4,
+        "image": "../images/1.png"
+    },
+    {
+        "id": 3,
+        "name": "Utan with fish meat",
+        "price": 3,
+        "image": "../images/3.png"
+    },
+    {
+        "id": 4,
+        "name": "Lugaw",
+        "price": 3,
+        "image": "../images/4.png"
+    },
+    {
+        "id": 5,
+        "name": "Utan Hilaw",
+        "price": 4,
+        "image": "../images/5.png"
+    },
+    {
+        "id": 6,
+        "name": "Pizza",
+        "price": 5,
+        "image": "../images/6.png"
+    },
+    {
+        "id": 7,
+        "name": "Tomato with dog food",
+        "price": 3,
+        "image": "../images/food1.png"
+    },
+    {
+        "id": 8,
+        "name": "Repolyo with Meat",
+        "price": 5,
+        "image": "../images/food2.png"
+    },
+    {
+        "id": 9,
+        "name": "Bihon",
+        "image": "../images/7.jpg"
+    }
+]

@@ -1,0 +1,256 @@
+#home {
+    display: flex;
+    background-image: url(../images/background.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    padding: 100px;
+    gap: 20px;
+}
+
+.home_intro {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+    background: rgba(61, 59, 59, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-title {
+    font-weight: bold;
+    font-size: 3em;
+    color: whitesmoke;
+}
+
+.home-subtitle {
+    font-size: 2em;
+    color: whitesmoke;
+}
+
+.home-para {
+    text-indent: 30px;
+    text-align: justify;
+    letter-spacing: 1px;
+    color: whitesmoke;
+    line-height: 20px;
+    position: relative;
+    padding: 5px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.buttons a {
+    height: 40px;
+    border: 1px solid gray;
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 30px;
+    gap: 20px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.buttons a:nth-child(1) {
+    background-color: skyblue;
+}
+
+.buttons a:nth-child(2) {
+    background-color: rgb(231, 231, 150);
+}
+
+.buttons a:nth-child(1):hover {
+    background-color: rgba(135, 207, 235, 0.781);
+}
+
+.buttons a:nth-child(2):hover {
+    background-color: rgba(231, 231, 150, 0.801);
+}
+
+.home_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.img-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Create a 2-column layout */
+    grid-template-rows: repeat(2, 1fr); /* Create a 2-row layout */
+    position: relative;
+}
+
+/* Position images in a triangle layout */
+.images {
+    width: 230px;
+    height: 230px;
+    animation: breathing 4s infinite;
+    transition: transform 0.3s ease-in-out;
+}
+
+.images:nth-child(1) {
+    grid-column: 1 / span 2;
+    justify-self: center;
+}
+
+.images:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+}
+
+.images:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+}
+
+/* Breathing animation */
+@keyframes breathing {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* Dialog styling */
+.dialog {
+    position: absolute;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.9em;
+    color: #333;
+    width: 250px;
+    text-align: center;
+}
+
+/* Dialog positioning for each image */
+.dialog-1 {
+    top: -10px; /* Place above the top image */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dialog-2 {
+    bottom: 150px; /* Place below the bottom-left image */
+    left: 10px;
+}
+
+.dialog-3 {
+    bottom: -50px; /* Place below the bottom-right image */
+    right: -20px;
+}
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    #home {
+        flex-direction: column-reverse;
+        background-image: none;
+        background-color: gray;
+        height: auto;
+    }
+
+    .home_intro {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .home_image {
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .img-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        background-color: rgb(136, 133, 133);
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(59, 58, 58, 0.1);
+    }
+
+    .images {
+        width: 250px;
+        height: auto;
+    }
+    .dialog {
+        width: 250px;
+        bottom: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 2em;
+    }
+
+    .home-subtitle {
+        font-size: 1.5em;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttons button {
+        width: 100%;
+    }
+    .images {
+        width: 200px;
+        height: auto;
+    }
+    .dialog {
+        width: 200px;
+        bottom: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    #home {
+        padding: 20px;
+    }
+
+    .home-title {
+        font-size: 1.5em;
+    }
+
+    .home-subtitle {
+        font-size: 1.2em;
+    }
+
+    .home-para {
+        font-size: 0.9em;
+    }
+    .images {
+        width: 100px;
+        height: auto;
+    }
+    .dialog {
+        width: 100px;
+        bottom: 40%;
+    }
+}
+
