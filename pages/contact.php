@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("../connect.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -52,27 +51,6 @@ include("../connect.php");
     </header>
     <div id="contact">
         <div class="contactUs">
-            <!-- <div class="contact-content">
-                <h3>Get in touch</h3>
-                <h1>Let's talk about your experiences</h1>
-                <h6>Drop us a line through the form below and we'll get back to you</h6>
-
-                <div class="contact-box">
-                    <div class="contact-left">
-                        <span><img src="../images/locationicon.png" alt="location" class="location">&nbsp;123, Lugar sa mga loyal, Tapilon, Daanbantayan, Cebu</span>
-                        <span><img src="../images/telephone.jpg" alt="telephone" class="telephone">&nbsp; 922-188-123</span>
-                        <span><img src="../images/cellphone.png" alt="telephone" class="telephone">&nbsp; 09632122818</span>
-                    </div>
-
-                    <div class="contact-right">
-                        <h5>Leave us a message</h5>
-                        <input type="text" class="input-text" placeholder="Name">
-                        <input type="text" class="input-text" placeholder="Email">
-                        <textarea name="message" class="input text message-box" placeholder="Message"></textarea>
-                        <button class="btn-send">Send</button>
-                    </div>
-                </div>
-            </div> -->
             <div class="title">
                 <h2>Get in Touch</h2>
             </div>
@@ -140,6 +118,8 @@ include("../connect.php");
                         </div>
                     </div>
                 </div>
+
+                <!-- map box -->
                 <div class="contact map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.963763978399!2d124.05816127402433!3d11.279614049712857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a87606da5271e3%3A0xd606b5d8a5098d46!2sSugbo%20Maya%20Seafoods%2C%20Grill%20Restaurant!5e1!3m2!1sen!2sph!4v1735034795819!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>

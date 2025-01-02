@@ -1,13 +1,14 @@
 body{
     margin: 0;
     font-family: Poppins;
+    background-color: gray;
 }
 .container{
-    width: 900px;
+    width: 80vw;
     margin: auto;
     max-width: 100vw;
     text-align: center;
-    padding-top: 10px;
+    padding: 10px;
     transition: transform .5s;
     padding-top: 100px;
 }
@@ -141,7 +142,14 @@ body.showCart .container{
 .listCart::-webkit-scrollbar{
     width: 0;
 }
-@media only screen and (max-width: 992px) {
+
+@media only screen and (max-width: 1024px){
+    .listProduct{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
     .listProduct{
         grid-template-columns: repeat(3, 1fr);
     }
@@ -149,8 +157,17 @@ body.showCart .container{
 
 
 /* mobile */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 564px) {
     .listProduct{
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 389px) {
+    .listProduct{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .cartTab{
+        width: 390px;
     }
 }

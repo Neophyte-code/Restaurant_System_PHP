@@ -3,16 +3,24 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    background-color: gray;
  }
 
 #contact{
-    background-color: gray;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 50px;
 }
 .contactUs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
     height: 100%;
-    padding-left: 40px;
-    padding-right: 40px;
+    width: 100%;
 }
 .title{
     display: flex;
@@ -93,15 +101,19 @@ body {
     min-height:50px;
 }
 .inputBox input[type="submit"]{
-    color: #fff;
+    color: white;
     border: none;
     font-size: 1.1em;
    width: 100%;
     font-weight: 500;
-    background: rgb(48, 230, 236);
+    background: aqua;
     border-radius: 15px;
     cursor: pointer;
 }
+.inputBox input[type="submit"]:hover{
+    background-color: rgb(98, 230, 235);
+}
+
 .inputBox ::placeholder{
     color: #999;
 }
@@ -139,23 +151,113 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    #contact {
+        padding: 70px 20px;
+    }
     .box {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        grid-template-areas: 
+        grid-template-areas:
             "form"
             "info"
             "map";
     }
+    .contact {
+        padding: 30px;
+    }
+    .map iframe {
+        height: 250px;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .contact {
         padding: 20px;
     }
+    .box {
+        gap: 15px; 
+    }
+}
 
+@media (max-width: 545px) {
+    #contact {
+        padding: 70px 20px;
+    }
+    .contact {
+        padding: 15px;
+        box-shadow: none; 
+    }
     .contact h3 {
-        font-size: 1.2em;
+        font-size: 1em;
+    }
+    .inputBox input,
+    .inputBox textarea {
+        font-size: 0.9em; 
+        padding: 8px;
+    }
+    .map iframe {
+        height: 200px; 
+    }
+    .info h3,
+    .info .infoBox div p,
+    .info .infoBox div a {
+        font-size: 0.9em; 
+    }
+}
+@media (max-width: 440px) {
+    #contact {
+        padding: 70px 20px;
+    }
+    .contact {
+        padding: 15px;
+        box-shadow: none; 
+    }
+    .contact h3 {
+        font-size: 1em;
+    }
+    .inputBox input,
+    .inputBox textarea {
+        font-size: 0.5em; 
+        padding: 8px;
+    }
+    .map iframe {
+        height: 200px; 
+    }
+    .info h3,
+    .info .infoBox div p,
+    .info .infoBox div a {
+        font-size: 0.9em; 
+    }
+    .inputBox ::placeholder{
+        font-size: 0.9em;
+    }
+}
+@media (max-width: 280px){
+    #contact {
+        padding: 70px 20px;
+    }
+    .contact {
+        padding: 15px;
+        box-shadow: none; 
+    }
+    .contact h3 {
+        font-size: 1em;
+    }
+    .inputBox input,
+    .inputBox textarea {
+        font-size: 0.3em; 
+        padding: 8px;
+    }
+    .map iframe {
+        height: 200px; 
+    }
+    .info h3,
+    .info .infoBox div p,
+    .info .infoBox div a {
+        font-size: 0.9em; 
+    }
+    .inputBox ::placeholder{
+        font-size: 0.9em;
     }
 }

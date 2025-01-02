@@ -95,8 +95,8 @@
 
 .img-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Create a 2-column layout */
-    grid-template-rows: repeat(2, 1fr); /* Create a 2-row layout */
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: repeat(2, 1fr); 
     position: relative;
 }
 
