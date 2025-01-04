@@ -1,6 +1,7 @@
 <?php
 
 include 'connect.php';
+session_start();
 
 
 //Sign up
@@ -20,7 +21,7 @@ if(isset($_POST['signUp'])){
         $insertQuery="INSERT INTO users(firstName,lastName,email,password)
                        VALUES ('$firstName','$lastName','$email','$password')";
             if($conn->query($insertQuery)==TRUE){
-                header("location: ../login/index.php");
+                header("location: index.php");
             }
             else{
                 echo "Error:".$conn->error;
@@ -38,7 +39,6 @@ if(isset($_POST['signIn'])){
    $sql="SELECT * FROM users WHERE email='$email' and password='$password'";
    $result=$conn->query($sql);
    if($result->num_rows>0){
-    session_start();
     $row=$result->fetch_assoc();
     $_SESSION['email']=$row['email'];
     header("Location: ./pages/home.php");
