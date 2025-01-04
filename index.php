@@ -1,3 +1,13 @@
+<?php
+
+require_once './google-auth/config.php';
+
+if(isset($_SESSION['user_token'])){
+  header("location: ./pages/home.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,13 +44,6 @@
         </div>
        <input type="submit" class="btn" value="Sign Up" name="signUp">
       </form>
-      <p class="or">
-        ----------or--------
-      </p>
-      <div class="icons">
-        <i class="fab fa-google"></i>
-        <i class="fab fa-facebook"></i>
-      </div>
       <div class="links">
         <p>Already Have Account ?</p>
         <button id="signInButton">Sign In</button>
@@ -67,8 +70,8 @@
           ----------or--------
         </p>
         <div class="icons">
-          <i class="fab fa-google"></i>
-          <i class="fab fa-facebook"></i>
+          <a href="<?php echo htmlspecialchars($client->createAuthUrl()); ?>"><i class="fab fa-google"></i></a>
+          <a href=""><i class="fab fa-facebook"></i></a>
         </div>
         <div class="links">
           <p>Don't have account yet?</p>
