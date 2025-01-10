@@ -70,8 +70,7 @@ if(isset($_SESSION['user_token'])){
           ----------or--------
         </p>
         <div class="icons">
-          <a href="<?php echo htmlspecialchars($client->createAuthUrl()); ?>"><i class="fab fa-google"></i></a>
-          <a href=""><i class="fab fa-facebook"></i></a>
+          <a href="<?php echo htmlspecialchars($client->createAuthUrl()); ?>"><img src="./images/google.png" alt="">Continue with Google</a>
         </div>
         <div class="links">
           <p>Don't have account yet?</p>

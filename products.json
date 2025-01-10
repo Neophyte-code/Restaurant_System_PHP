@@ -1,55 +1,146 @@
 [
     {
         "id": 1,
-        "name": "Ginagmay",
-        "price": 5,
-        "image": "../images/1.png"
-    },
-    {
-        "id": 2,
-        "name": "Chicken inasal",
-        "price": 4,
-        "image": "../images/1.png"
-    },
-    {
-        "id": 3,
-        "name": "Utan with fish meat",
-        "price": 3,
-        "image": "../images/3.png"
-    },
-    {
-        "id": 4,
-        "name": "Lugaw",
-        "price": 3,
-        "image": "../images/4.png"
-    },
-    {
-        "id": 5,
-        "name": "Utan Hilaw",
-        "price": 4,
-        "image": "../images/5.png"
-    },
-    {
-        "id": 6,
-        "name": "Pizza",
-        "price": 5,
-        "image": "../images/6.png"
-    },
-    {
-        "id": 7,
-        "name": "Tomato with dog food",
-        "price": 3,
+        "name": "Fresh Farm Chicken Pot",
+        "price": 50,
         "image": "../images/food1.png"
     },
     {
-        "id": 8,
-        "name": "Repolyo with Meat",
-        "price": 5,
+        "id": 2,
+        "name": "Garden Fresh Chicken Delight",
+        "price": 90,
         "image": "../images/food2.png"
     },
     {
+        "id": 3,
+        "name": "Macaroni Vegie Fiesta",
+        "price": 45,
+        "image": "../images/food3.png"
+    },
+    {
+        "id": 4,
+        "name": "Glazed Tuna Delight",
+        "price": 20,
+        "image": "../images/1.png"
+    },
+    {
+        "id": 5,
+        "name": "Roasted Chicken Wings",
+        "price": 70,
+        "image": "../images/2.png"
+    },
+    {
+        "id": 6,
+        "name": "Country Style Tuna and Greens",
+        "price": 60,
+        "image": "../images/3.png"
+    },
+    {
+        "id": 7,
+        "name": "Sweet and Savory Chicken Bowl",
+        "price": 55,
+        "image": "../images/4.png"
+    },
+    {
+        "id": 8,
+        "name": "CLassic Vegetables",
+        "price": 90,
+        "image": "../images/5.png"
+    },
+    {
         "id": 9,
-        "name": "Bihon",
-        "image": "../images/7.jpg"
+        "name": "Italian Pizza",
+        "price": 50,
+        "image": "../images/6.png"
+    },
+    {
+        "id": 10,
+        "name": "Stir fried pork",
+        "price": 60,
+        "image": "../images/7.png"
+    },
+    {
+        "id": 11,
+        "name": "Hummus",
+        "price": 80,
+        "image": "../images/8.png"
+    },
+    {
+        "id": 12,
+        "name": "Carrot Soup and chicken",
+        "price": 80,
+        "image": "../images/9.png"
+    },
+    {
+        "id": 13,
+        "name": "Sushi",
+        "price": 70,
+        "image": "../images/10.png"
+    },
+    {
+        "id": 14,
+        "name": "Chicken biryani",
+        "price": 60,
+        "image": "../images/11.png"
+    },
+    {
+        "id": 15,
+        "name": "Garden Roast",
+        "price": 80,
+        "image": "../images/12.png"
+    },
+    {
+        "id": 16,
+        "name": "Oyster",
+        "price": 70,
+        "image": "../images/13.png"
+    },
+    {
+        "id": 17,
+        "name": "Sunflower pudding",
+        "price": 20,
+        "image": "../images/14.png"
+    },
+    {
+        "id": 18,
+        "name": "Pho",
+        "price": 50,
+        "image": "../images/15.png"
+    },
+    {
+        "id": 18,
+        "name": "Sweet and sour pork",
+        "price": 60,
+        "image": "../images/16.png"
+    },
+    {
+        "id": 20,
+        "name": "Jollof rice",
+        "price": 45,
+        "image": "../images/17.png"
+    },
+    {
+        "id": 21,
+        "name": "Penne pasta",
+        "price": 70,
+        "image": "../images/18.png"
+    },
+    {
+        "id": 22,
+        "name": "Beef Tartare",
+        "price": 65,
+        "image": "../images/19.png"
+    },
+    {
+        "id": 23,
+        "name": "Fried Chicken",
+        "price": 70,
+        "image": "../images/20.png"
+    },
+    {
+        "id": 24,
+        "name": "Bibimbap",
+        "price": 60,
+        "image": "../images/21.png"
     }
 ]

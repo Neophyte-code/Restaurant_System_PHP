@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../connect.php");
+include("../google-auth/auth.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +12,9 @@ include("../connect.php");
     <title>EASYDINE RESTAURANT</title>
     <link rel="stylesheet" href="../css/navbar.css"/>
     <link rel="stylesheet" href="../css/menu.css"/>
+    <!-- sweet alert dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body >
 <!-- Header -->
@@ -34,18 +38,24 @@ include("../connect.php");
         </nav>
         <div class="profile">
           <p>
-            <?php 
-            if(isset($_SESSION['email'])){
-            $email=$_SESSION['email'];
-            $query=mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
-            while($row=mysqli_fetch_array($query)){
-            echo $row['firstName'].' '.$row['lastName'];
-            }
+          <?php 
+            if (isset($_SESSION['user_token'])) {
+                // Display Google Auth data
+                echo $_SESSION['full_name']; // Use the full name from the session
+            } elseif (isset($_SESSION['email'])) {
+                // Display data from the database
+                $email = $_SESSION['email'];
+                $query = mysqli_query($conn, "SELECT * FROM `users` WHERE email='$email'");
+                if ($row = mysqli_fetch_assoc($query)) {
+                    echo $row['firstName'] . ' ' . $row['lastName'];
+                }
+            } else {
+                echo "Guest"; // Default message if no user is logged in
             }
             ?>
           </p>
           <div class="logout">
-            <a href="../logout.php" class="logout-btn">Logout</a>
+            <a href="../logout.php" class="logout-btn" onclick="confirmLogout(event)">Logout</a>
           </div>
         </div>
     </header>
@@ -74,6 +84,7 @@ include("../connect.php");
             <button class="checkOut">Check Out</button>
         </div>
     </div>
+    <script src="../js/sweetalert.js"></script>
     <script src="../js/app.js"></script>
 </body>
 </html>

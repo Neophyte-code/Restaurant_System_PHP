@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../connect.php");
+include("../google-auth/auth.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,9 @@ include("../connect.php");
     <link rel="stylesheet" href="../css/navbar.css"/>
     <link rel="stylesheet" href="../css/about.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- sweet alert dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!-- Header -->
@@ -35,17 +39,23 @@ include("../connect.php");
         <div class="profile">
           <p>
             <?php 
-            if(isset($_SESSION['email'])){
-            $email=$_SESSION['email'];
-            $query=mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
-            while($row=mysqli_fetch_array($query)){
-            echo $row['firstName'].' '.$row['lastName'];
-            }
-            }
+                if (isset($_SESSION['user_token'])) {
+                    // Display Google Auth data
+                    echo $_SESSION['full_name']; // Use the full name from the session
+                } elseif (isset($_SESSION['email'])) {
+                    // Display data from the database
+                    $email = $_SESSION['email'];
+                    $query = mysqli_query($conn, "SELECT * FROM `users` WHERE email='$email'");
+                    if ($row = mysqli_fetch_assoc($query)) {
+                        echo $row['firstName'] . ' ' . $row['lastName'];
+                    }
+                } else {
+                    echo "Guest"; // Default message if no user is logged in
+                }
             ?>
           </p>
           <div class="logout">
-            <a href="../logout.php" class="logout-btn">Logout</a>
+            <a href="../logout.php" class="logout-btn" onclick="confirmLogout(event)">Logout</a>
           </div>
         </div>
     </header>
@@ -118,6 +128,7 @@ include("../connect.php");
             </div>
         </div>
      </div>
+    <script src="../js/sweetalert.js"></script>
     <script src="../js/Modal.js"></script>
 </body>
 </html>

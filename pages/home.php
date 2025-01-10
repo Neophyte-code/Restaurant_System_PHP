@@ -1,91 +1,21 @@
 <?php
 session_start();
 include("../connect.php");
-
-// Requirement for Google auth
-require_once('../google-auth/config.php');
-
-// Authenticate code from Google OAuth Flow
-if (isset($_GET['code'])) {
-    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-
-    // Handle errors in the token response
-    if (isset($token['error'])) {
-        echo "Error fetching token: " . htmlspecialchars($token['error']);
-        die();
-    }
-
-    // Set access token if it's available
-    if (isset($token['access_token'])) {
-        $client->setAccessToken($token['access_token']);
-    } else {
-        echo "Access token not found!";
-        die();
-    }
-
-    // Get profile info
-    $google_oauth = new Google\Service\Oauth2($client);
-    $google_account_info = $google_oauth->userinfo->get();
-    $userinfo = [
-        'email' => $google_account_info['email'],
-        'first_name' => $google_account_info['givenName'],
-        'last_name' => $google_account_info['familyName'],
-        'gender' => $google_account_info['gender'],
-        'full_name' => $google_account_info['name'],
-        'picture' => $google_account_info['picture'],
-        'verifiedEmail' => $google_account_info['verifiedEmail'],
-        'token' => $google_account_info['id'],
-    ];
-
-    // Checking if user already exists in the database
-    $sql = "SELECT * FROM googleusers WHERE email ='{$userinfo['email']}'";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        // User exists
-        $userinfo = mysqli_fetch_assoc($result);
-        $token = $userinfo['token'];
-    } else {
-        // User does not exist, insert into database
-        $sql = "INSERT INTO googleusers (email, first_name, last_name, gender, full_name, picture, verifiedEmail, token) VALUES ('{$userinfo['email']}', '{$userinfo['first_name']}', '{$userinfo['last_name']}', '{$userinfo['gender']}', '{$userinfo['full_name']}', '{$userinfo['picture']}', '{$userinfo['verifiedEmail']}', '{$userinfo['token']}')";
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
-            $token = $userinfo['token'];
-        } else {
-            echo "User  is not created";
-            die();
-        }
-    }
-
-    // Save user data into session
-    $_SESSION['user_token'] = $token;
-} else {
-    // Check if user is logged in via database credentials
-    if (!isset($_SESSION['user_token']) && !isset($_SESSION['email'])) {
-        header("Location: index.php"); // Redirect to login page if not logged in
-        exit();
-    }
-
-    // If logged in via database credentials
-    if (isset($_SESSION['email'])) {
-        $email = $_SESSION['email'];
-        $query = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
-        if ($row = mysqli_fetch_assoc($query)) {
-            // User data is available
-            $userinfo = $row; // Use this for displaying user info
-        }
-    }
-}
+include("../google-auth/auth.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="../css/navbar.css"/>
-  <link rel="stylesheet" href="../css/home.css">
-  <!--     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../css/navbar.css"/>
+    <link rel="stylesheet" href="../css/home.css">
+
+    <!-- sweet alert dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <!-- Header -->
@@ -109,24 +39,24 @@ if (isset($_GET['code'])) {
         </nav>
         <div class="profile">
           <p>
-            <?php 
+            <?php
             if (isset($_SESSION['user_token'])) {
-              // Display Google Auth data
-              echo $userinfo['full_name']; // Full name from Google Auth
+                // Display Google Auth data
+                echo $_SESSION['full_name']; // Use the full name from the session
             } elseif (isset($_SESSION['email'])) {
-              // Display data from the database
-              $email = $_SESSION['email'];
-              $query = mysqli_query($conn, "SELECT * FROM `users` WHERE email='$email'");
-              if ($row = mysqli_fetch_assoc($query)) {
-                echo $row['firstName'] . ' ' . $row['lastName'];
-              }
+                // Display data from the database
+                $email = $_SESSION['email'];
+                $query = mysqli_query($conn, "SELECT * FROM `users` WHERE email='$email'");
+                if ($row = mysqli_fetch_assoc($query)) {
+                    echo $row['firstName'] . ' ' . $row['lastName'];
+                }
             } else {
-              echo "Guest"; // Default message if no user is logged in
+                echo "Guest"; // Default message if no user is logged in
             }
             ?>
           </p>
           <div class="logout">
-            <a href="../logout.php" class="logout-btn">Logout</a>
+            <a href="../logout.php" class="logout-btn" onclick="confirmLogout(event)">Logout</a>
           </div>
         </div>
     </header>
@@ -151,5 +81,6 @@ if (isset($_GET['code'])) {
             </div>
         </div>
     </div>
+    <script src="../js/sweetalert.js"></script>
 </body>
 </html>
